@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
 * {
     box-sizing: border-box;
 }
@@ -12,7 +13,7 @@ body {
     background-size: cover;
     color: white;
     font-family: 'Lora', serif;
-    font-weight: 700;
+    font-weight: 600;
     text-shadow: 0px 0px 20px #242424;
 }
 
@@ -35,7 +36,30 @@ div.top {
 }
 
 .greeting {
-    font-weight: 400;
+    font-weight: 700;
+    margin: 0;
+}
+
+.mission {
+    margin: 0;
+    padding: 0;
+    font-size: 25px;
+    color: rgb(255, 136, 0);
+}
+
+.slide-right {
+    overflow: hidden;
+}
+
+.slide-right .mission {
+    animation: 2s slide-right 3s forwards;
+    transform: translateX(-100%);
+}
+
+@keyframes slide-right {
+    to {
+        transform: translateX(0);
+    }
 }
 
 div.coin-cont {
@@ -87,4 +111,82 @@ p.temp {
     margin: 0;
     font-size: 1.7rem;
     margin-left: -10px;
+}
+
+.author_setting {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+}
+
+.setting:hover {
+    cursor: pointer;
+    filter: invert(0.5) sepia(1) hue-rotate(200deg) saturate(4) brightness(1);
+    ;
+}
+
+.setting-tab {
+    margin: 0 auto;
+    max-width: 300px;
+    width: 90%;
+    border-radius: 20px;
+    background: linear-gradient(40deg, rgb(28, 105, 28), rgba(134, 167, 16, 0.932), rgb(207, 207, 52));
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-55%) translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 2em 1.5em 2em;
+    display: none;
+}
+
+.setting-tab hr {
+    margin: 0.2em 0 1em;
+}
+
+.bg-filter {
+    display: flex;
+    flex-direction: column;
+}
+
+#filter {
+    padding: 0.5em;
+    border-radius: 5px;
+    border: none;
+    margin: 0.5em 0 1em;
+    outline: none;
+}
+
+.save-change {
+    border: none;
+    border-radius: 5px;
+    padding: 0.4em;
+    background-color: rgb(58, 58, 58);
+    color: white;
+    text-transform: capitalize;
+    font-weight: 700;
+    cursor: pointer;
+    margin: 1em 0;
+    background-image: linear-gradient(40deg, rgba(207, 63, 27, 0.205), rgb(206, 163, 23), rgb(9, 0, 128));
+    transition: .5s all;
+}
+
+.save-change:hover {
+    color: chartreuse;
+    transform: scale(0.88);
+}
+
+.cancel-change {
+    text-align: center;
+    cursor: pointer;
+    color: black;
+    transition: .5s all;
+}
+
+.cancel-change:hover {
+    color: red;
+    transform: scale(1.8);
 }
