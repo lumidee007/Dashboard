@@ -15,7 +15,7 @@ let saveChange = getElement('.save-change')
 
 imageText = !imageText ? localStorage.setItem("imageText", JSON.stringify('Nature')) : JSON.parse(localStorage.getItem("imageText"))
 
-
+// Getting random images from unsplash
 const getBgImage = async(text) => {
     try {
         const res = await fetch(`https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&query=${text}`)
@@ -26,11 +26,13 @@ const getBgImage = async(text) => {
 
     } catch (err) {
         document.body.style.backgroundImage = `url(https://images.unsplash.com/photo-1426604966848-d7adac402bff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMTEwMjl8MHwxfHJhbmRvbXx8fHx8fHx8fDE2MjUwMDg0MTQ&ixlib=rb-1.2.1&q=80&w=1080)`
-        author.textContent = "By: Oluwafemi Midemi"
+        author.textContent = "By: Famoochi"
     }
 }
 getBgImage(imageText)
 
+
+// Coingecko API call 
 fetch("https://api.coingecko.com/api/v3/coins/solana")
     .then(res => {
         if (!res.ok) {
@@ -52,6 +54,7 @@ fetch("https://api.coingecko.com/api/v3/coins/solana")
     .catch(err => console.error(err))
 
 
+    // Getting current time.
 function getCurrentTime() {
     const date = new Date()
     time.textContent = date.toLocaleTimeString("en-us", { timeStyle: "medium" })
@@ -67,8 +70,7 @@ function getCurrentTime() {
 
 setInterval(getCurrentTime, 1000)
 
-
-
+// Getting the users location
 navigator.geolocation.getCurrentPosition(pos => {
     let lat = pos.coords.latitude
     let long = pos.coords.longitude
@@ -95,15 +97,11 @@ navigator.geolocation.getCurrentPosition(pos => {
 });
 
 
-settings.addEventListener('click', () => {
-    tabSettings.style.display = "flex"
-})
+settings.addEventListener('click', () => tabSettings.style.display = "flex")
 
-cancelChange.addEventListener('click', () => {
-    tabSettings.style.display = "none"
-})
+cancelChange.addEventListener('click', () => tabSettings.style.display = "none")
 
-
+// Saving background image text to local storage
 function saveSetting() {
     let inputText = document.getElementById('filter').value;
     if (inputText) {
